@@ -1,0 +1,23 @@
+#include<stdio.h>
+int main(void)
+{
+    int a,b,r=1,t;
+    scanf("%d %d",&a,&b);
+ 
+    if(a < b)
+    { 
+        r = a;
+        a = b;
+        b = r;
+    }
+    
+    while(r!= 0)
+    {
+        r = a%b;
+        a = b;
+        b = r;
+    }
+ 
+   printf("最大公约数：%d\n",a);
+   return 0;
+}
