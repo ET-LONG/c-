@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n,a,i;
+    int maxFeq;
+    int cnt[10]= {0}; // cnt[i]=k 表示 数字i出现k次
+    scanf("%d", &n);
+
+    for(i=0;i<n;i++)
+    {
+        scanf("%d", &a);
+
+        do{   //统计整数a每个数字出现的次数,注意用do-while循环
+            ++cnt[a%10];
+            a /=10;
+        }while(a);
+    }
+
+    if(n<=0)
+        return 0;
+
+    //求出现最多数字的次数
+    maxFeq=cnt[0];
+    for(i=1;i<10;i++)
+    {
+        if(cnt[i]> maxFeq)
+            maxFeq= cnt[i];
+    }
+    // 输出出现次数最多的数字
+    printf("%d:", maxFeq);
+    for(i=0;i<10;i++)
+    {
+        if(cnt[i]==maxFeq )
+            printf(" %d", i);
+    }
+
+    return 0;
+}
