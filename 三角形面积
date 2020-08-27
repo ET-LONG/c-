@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    double a, b,c,s,area;//定义三角形的边长和面积
+    a=3.67;
+    b=5.43;
+    c=6.21;
+    s=(a+b+c)/2;
+    area=sqrt(s*(s-a)*(s-b)*(s-c));//求三角形面积，sqrt表示求根号函数，
+    printf("a=%f\tb=%f\tc=%f\n",a,b,c);//输出边长
+    printf("area=%f\n",area);//输出面积
+    return 0;
+}
