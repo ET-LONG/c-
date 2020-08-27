@@ -1,0 +1,41 @@
+#include<string.h>
+#include<stdio.h>
+#define maxn 160
+int a[maxn],b[maxn],c[maxn],d[maxn];
+int used[maxn];
+int girl[maxn],line[maxn][maxn];
+int n;
+
+int  Find(int x)
+{ int j;
+    for( j=1;j<=n;j++)
+    { if(line[x][j]&&!used[j])
+        { used[j]=1;
+          if(girl[j]==0||Find(girl[j])){girl[j]=x;return 1;}
+        }
+    }
+    return 0;}
+
+int main()
+{ int i,j;
+    scanf("%d",&n);
+    for( i=1;i<=n;i++) scanf("%d%d",&a[i],&b[i]);
+    for( i=1;i<=n;i++) scanf("%d%d",&c[i],&d[i]);
+    memset(line,0,sizeof(line));
+    for( i=1;i<=n;i++)
+    {
+        for( j=1;j<=n;j++){
+            if((a[i]<c[j])&&(b[i]<d[j])){
+                line[i][j]=1;
+            }
+        }
+    }
+    memset(girl,0,sizeof(girl));
+    int ans=0;
+    for(i=1;i<=n;i++){
+        memset(used,0,sizeof(used));
+        if(Find(i)) ans++;
+    }
+   printf("%d\n",ans);
+    return 0;
+}
