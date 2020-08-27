@@ -1,0 +1,21 @@
+#include<stdio.h>
+int main(){
+int n,q,w,i,diget,sum,sum1=0,sum2=0,sum3=0;
+scanf("%d",&n);int number[n];
+for(i=0;i<n;i++){sum1=0;sum2=0;sum3=0;
+    scanf("%d %d",&q,&w);
+while(q>0){
+diget=q%10;q/=10;sum1=sum1*10+diget;
+}while(w>0){
+    diget=w%10;w/=10;sum2=sum2*10+diget;
+}sum=sum1+sum2;
+while(sum>0){diget=sum%10;sum/=10;
+sum3=sum3*10+diget;
+
+}
+number[i]=sum3;
+} 
+for(i=0;i<n;i++){
+	printf("%d\n",number[i]);}
+    return 0;
+}
