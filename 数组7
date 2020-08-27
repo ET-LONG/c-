@@ -1,0 +1,21 @@
+#include<stdio.h>
+int main(){
+int n,m,i,max=0;int number[10]={0};
+scanf("%d",&n);
+for(i=0;i<n;i++){
+scanf("%d",&m);if(m==0){number[0]++;
+}while(m>0){number[m%10]++;
+m=m/10;
+}
+}for(i=0;i<10;i++){
+if(max<number[i]){
+    max=number[i];
+}
+}printf("%d:",max);
+for(i=0;i<10;i++){
+    if(max==number[i]){
+        printf(" %d",i);
+    }
+}
+    return 0;
+}
