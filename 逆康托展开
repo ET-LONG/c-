@@ -1,0 +1,16 @@
+
+*/ #include <stdio.h> 
+#include <string.h>
+int a[12] = { 1 , 2 , 6 , 24 , 120 , 720 , 5040 , 40320 , 362880 , 3628800 , 39916800 } ; 
+int vis[12] ; int res[12] ; 
+int main() { int total , n ; int i , j ; scanf("%d", &total ) ; 
+while( total-- > 0 )
+{ memset( vis , 0 , sizeof( vis ) ) ; memset( res , 0 , sizeof( res ) ) ; 
+scanf("%d", &n ) ;
+n -= 1 ; for( i = 10 ; i >= 0 ; --i ) 
+{ res[10 - i] = n / a[i] ; n %= a[i] ; } 
+for( i = 0 ; i < 11 ; ++i ) { char c = res[i] + 'a' ; for( j = 0 ; j <= c - 'a' ; ++j ) 
+//关键 { if( vis[j] ) c++ ; } vis[c - 'a'] = 1 ; res[i] = c ; } for( i = 0 ; i < 12 ; ++i )
+{ if( !vis[i] ) res[11] = 'a' + i ; } for( i = 0 ; i < 12 ; ++i ) printf("%c", res[i] ) ; 
+printf("\n") ; } 
+return 0 ; } 
