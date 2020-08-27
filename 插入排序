@@ -1,0 +1,38 @@
+#include<stdio.h>
+int main(void)
+{
+ 
+    int num[7]={2,3,5,11,15,17},num1;
+   printf("请数入一个是数:");
+   scanf("%d",&num1);
+   int i=0;
+   int index=0;
+   for(i;i<6;i++)//找到index要插入的下标位置
+   {
+     if(num1>=num[i]&&num1<=num[i+1])
+        {
+        index=i+1;
+        break;
+        }
+     if(num1<num[0])
+     {
+        index=0;
+        break;
+     }
+     if(num1>num[5])
+     {
+        index=6;
+        break;
+     }
+   }
+ 
+   for(i=6;i>index;i--)//移动
+   {
+    num[i]=num[i-1];
+   }
+   num[index]=num1;//找到下标赋值
+   for(i=0;i<7;i++)
+   {
+    printf("%d,",num[i]);
+   }
+}
