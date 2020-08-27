@@ -1,0 +1,28 @@
+#include<stdio.h>
+int main()
+{
+int m,n,cet=0;scanf("%d %d",&m,&n);
+for(m=m;m<=n;m++){
+	{int i,h,sum=0,flag=0,t=0;int number[10000]; 
+
+for(i=1;i<m;i++){
+if(m%i==0){sum+=i;number[t]=i;t++;
+
+}
+}if(m==sum){flag=1;
+    printf("%d = ",m);for(h=0;h<t;h++){
+printf("%d",number[h]);if(h!=t-1){
+    printf(" + ");
+}
+
+    }
+}if(flag){
+printf("\n");cet++;}}
+}if(cet==0){
+	printf("None");
+}
+
+
+
+    return 0;
+}
