@@ -1,0 +1,42 @@
+#include<stdio.h>
+int main(){
+int m,n,i,q,h,t;int flag=1,cet=0;int sum[40];
+scanf("%d",&m);
+int number1[m];
+for(i=0;i<m;i++){
+    scanf("%d",&q);number1[i]=q;
+}scanf("%d",&n);int number2[n];
+for(i=0;i<n;i++){
+    scanf("%d",&q);number2[i]=q;
+}for(i=0;i<m;i++){
+for(h=0;h<n;h++){
+    if(number1[i]==number2[h]){
+        flag=0;break;
+    }
+}if(flag){
+    sum[cet]=number1[i];cet++;
+}flag=1;
+
+}for(i=0;i<n;i++){
+for(h=0;h<m;h++){
+    if(number2[i]==number1[h]){
+        flag=0;break;
+    }
+}if(flag){
+    sum[cet]=number2[i];cet++;
+}flag=1;
+
+}printf("%d",sum[0]);
+for(i=1;i<cet;i++){h=i;
+	for(t=0;t<i;t++){
+		if(sum[i]==sum[t]){
+			flag=0;
+		}
+	}if(flag){printf(" %d",sum[i]);
+	}flag=1;
+}
+
+
+
+    return 0;
+} 
