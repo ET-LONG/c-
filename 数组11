@@ -1,0 +1,50 @@
+#include<stdio.h>
+struct Student{
+    int num;
+    char name[20];
+    int score[3];
+};
+void input(struct Student stu[]){
+    for(int i=0;i<10;i++){
+        scanf("%d",&stu[i].num);
+        scanf("%s",stu[i].name);
+        for(int j=0;j<3;j++){
+            scanf("%d",&stu[i].score[j]);
+        }
+    }
+}
+void print(struct Student stu[]){
+    double sum[3],sum2[10]={0},um=0.0;
+    double m,n,t;
+    for(int j=0;j<3;j++){
+     sum[j]=0;
+    for(int i=0;i<10;i++){
+ 
+        sum[j]=sum[j]+stu[i].score[j];
+ 
+ 
+    }um+=sum[j];
+    
+    }printf("%.2f\n",um/30);
+    for(int i=0;i<10;i++){
+    for(int j=0;j<3;j++){
+        sum2[i]=sum2[i]+stu[i].score[j];
+    }
+    }
+    int max=sum2[0],q;
+    for(int i=1;i<10;i++){
+        if(max<sum2[i]){
+                max=sum2[i];
+                q=i;
+        }
+    }m=stu[q].score[0],n=stu[q].score[1],t=stu[q].score[2];
+    printf("%d %s %.2f %.2f %.2f",stu[q].num,stu[q].name,m,n,t);
+}
+ 
+ 
+int main(){
+    struct Student stu[10];
+    input(stu);
+    print(stu);
+    return 0;
+    }
