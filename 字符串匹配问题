@@ -1,0 +1,24 @@
+//给定两个长度相同的字符串 a 和字符串 b。如果在某个位置 i 上，
+//满足字符串 a 上的字符a[i]和字符串 b 上的字符b[i]相同，那么这个位置上的字符就是匹配的。
+//如果两个字符串的匹配位置的数量与字符串总长度的比值大于或等于k，则称两个字符串是匹配的。
+#include <stdio.h>
+int main()
+{
+    char a[100],b[100];
+    double cnt=0,k;
+    scanf("%lf\n%s\n%s",&k,&a,&b);
+    double len=strlen(a);
+    for(int i=0;i<len;i++)
+    {
+        if(a[i] == b[i])
+            cnt++;
+    }
+    cnt = cnt/len;printf("%.1f",cnt);
+    if(k<=cnt)
+    {
+        printf("yes");
+        return 0;
+    }
+    else  printf("no");
+    return 0;
+}
