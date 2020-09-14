@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main()
+{
+    double x,y;
+    scanf("%lf %lf",&x,&y);
+    //输入点的坐标
+    double x1,y1,x2,y2;
+    scanf("%lf %lf %lf %lf",&x1,&y1,&x2,&y2);
+    //输入矩形对角线两个端点的坐标
+    if((x-x1)*(x-x2)<=0 && (y-y1)*(y-y2)<=0)
+    printf("是");
+    else printf("否");
+    return 0;
+}
