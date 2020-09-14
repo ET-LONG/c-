@@ -1,0 +1,42 @@
+
+//在8*8国际棋盘上摆放八个皇后,任意两个皇后都不能都不能处于同一行、列、斜线上,求有多少种摆法.
+#include <stdio.h>
+#define max 8
+int queen[max], sum=0; // max为棋盘最大坐标 
+void f() //输出所有皇后的坐标 
+{
+    int i;
+    for(i=0;i<max;i++)
+    printf("(%d,%d) ", i, queen[i]);
+    printf("\n");
+    sum++;
+}
+int check(int n) 
+{
+    int i;
+    for(i=0;i<n;i++) 
+    {
+        if(queen[i] == queen[n] || abs(queen[i] - queen[n]) == (n - i))
+        return 1;
+    }
+    return 0;
+}
+void put(int n) //n为横坐标 
+{
+    int i;
+    for(i=0;i<max;i++)
+    {
+        queen[n] = i; //将皇后摆到当前循环到的位置 
+        if(!check(n))
+        {
+            if(n == max - 1)  f(); /* 如果全部摆好，则输出所有皇后的坐标 */
+            else  put(n + 1); /* 否则继续摆放下一个皇后 */
+        }
+    }
+}
+int main()
+{
+    put(0); //从横坐标为0开始依次尝试 
+    printf("%d", sum);
+    return 0;
+}
