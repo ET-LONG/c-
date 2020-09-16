@@ -1,0 +1,31 @@
+//输入一个字符，求用字符串可以打印出多少个balloon单词。
+#include<stdio.h>
+int main()
+{
+    char s[10000];
+    gets(s);
+    int n=strlen(s);
+    int b[5]={0};
+    // b[0]=b,b[1]=a,b[2]=l,b[3]=o,b[4]=n;
+    for(int i=0;i<n;i++)
+    {
+       switch(s[i])
+       {
+         case 'b':b[0]++;break;
+         case 'a':b[1]++;break;
+         case 'l':b[2]++;break;
+         case 'o':b[3]++;break;
+         case 'n':b[4]++;break;
+       }
+    }
+    b[2]=b[2]/2;
+    b[3]=b[3]/2;
+    int min=b[0];
+    for(int i=0;i<5;i++)
+    {
+          if(b[i]<=min)
+          min=b[i];
+    }
+    printf("%d",min);
+    return 0;
+}
